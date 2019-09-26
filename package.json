@@ -1,0 +1,52 @@
+{
+  "name": "stationzeta.com",
+  "version": "1.0.0",
+  "description": "Promotional website for Station Zeta",
+  "main": "index.js",
+  "author": "trevor@texasexpat.net",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "npm-run-all clean compile",
+    "clean": "rm -rf dist/*",
+    "compile": "webpack --config webpack.config.js --mode=production --optimize-minimize",
+    "watch": "webpack --config webpack.config.js --watch",
+    "serve": "webpack-dev-server",
+    "start": "npm-run-all --parallel watch serve",
+    "thumbnails": "mogrify -format jpg -path ./src/thumbs -thumbnail 600x ./src/gallery/*.png"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-pro": "^5.11.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/pro-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
+    "lodash-es": "^4.17.15",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-image-gallery": "^0.9.1"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/lodash": "^4.14.139",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-template": "^6.2.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.1.2",
+    "typescript": "^3.6.3",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  }
+}
