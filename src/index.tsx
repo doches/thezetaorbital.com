@@ -9,6 +9,8 @@ const title = require("./img/Titlemark.png");
 const titleVertical = require("./img/Titlemark-vertical.png");
 
 const mp4 = require("./video/promo-hd.mp4");
+const ogg = require("./video/promo-hd.ogv");
+const webm = require("./video/promo-hd.webm");
 
 import "./index.less";
 
@@ -37,6 +39,8 @@ ReactDOM.render((
             <div className="background-video scanlines">
                 <video playsInline autoPlay muted loop>
                     <source src={mp4} type="video/mp4" />
+                    <source src={ogg} type="video/ogg" />
+                    <source src={webm} type="video/webm" />
                 </video>
             </div>
         </div>

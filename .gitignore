@@ -9,3 +9,4 @@ webpack.stats.json
 dist.tar.gz
 dist.tar
 *.mp4
+src/video/*
