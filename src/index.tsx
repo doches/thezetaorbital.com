@@ -9,7 +9,7 @@ const title = require("./img/Titlemark.png");
 const titleVertical = require("./img/Titlemark-vertical.png");
 
 const mp4 = require("./video/promo-hd.mp4");
-const ogg = require("./video/promo-hd.ogv");
+const ogg = require("./video/promo-hd.ogg");
 const webm = require("./video/promo-hd.webm");
 
 import "./index.less";

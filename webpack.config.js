@@ -37,7 +37,7 @@ module.exports = {
         test: /\.html$/,
         loader: "html-loader"
       }, {
-        test: /\.(mp4|ogg|webm)$/,
+        test: /\.(mp4|ogg|webm|ogv)$/,
         use: [{
           loader: "file-loader",
           options: {
