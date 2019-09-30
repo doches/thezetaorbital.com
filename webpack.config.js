@@ -2,6 +2,7 @@ var path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTemplate = require("html-webpack-template");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const matomoSnippet = require("./matomoSnippet").snippet;
 
 module.exports = {
   mode: "development",
@@ -76,7 +77,8 @@ module.exports = {
         }
       ],
       lang: "en-US",
-      title: "The Zeta Orbital"
+      title: "The Zeta Orbital",
+      headHtmlSnippet: matomoSnippet,
     }),
     new CopyWebpackPlugin([
       {
