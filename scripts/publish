@@ -4,6 +4,10 @@ hostname=root@thezetaorbital.com
 
 rm dist.tar.gz
 yarn build
+
+# Remove videos from dist, since they don't need to be re-uploaded every time!
+rm dist/video/*
+
 tar -cvvf dist.tar dist/*
 gzip dist.tar
 ssh $hostname 'rm -rf /srv/www/thezetaorbital.com/public_html/*'
