@@ -1,6 +1,7 @@
 #!/bin/bash
 
 hostname=root@thezetaorbital.com
+SSHOPTS=-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
 
 rm dist.tar.gz
 yarn build
@@ -10,10 +11,10 @@ rm dist/video/*
 
 tar -cvvf dist.tar dist/*
 gzip dist.tar
-ssh $hostname 'rm -rf /srv/www/thezetaorbital.com/public_html/*'
-scp dist.tar.gz $hostname:/srv/www/thezetaorbital.com/public_html/
-ssh $hostname 'cd /srv/www/thezetaorbital.com/public_html; tar -zxvf dist.tar.gz; rm dist.tar.gz; mv dist/* .; rmdir dist;'
+ssh $SSHOPTS $hostname 'rm -f /srv/www/thezetaorbital.com/public_html/*.js; rm -f /srv/www/thezetaorbital.com/public_html/*.html'
+scp $SSHOPTS dist.tar.gz $hostname:/srv/www/thezetaorbital.com/public_html/
+ssh $SSHOPTS $hostname 'cd /srv/www/thezetaorbital.com/public_html; tar -zxvf dist.tar.gz; rm dist.tar.gz; mv dist/* .; rmdir dist;'
 rm dist.tar.gz
-scp -rd static/* $hostname:/srv/www/thezetaorbital.com/public_html/
-ssh $hostname 'chown -R nginx /srv/www/thezetaorbital.com/'
-ssh $hostname 'chgrp -R nginx /srv/www/thezetaorbital.com/'
+scp $SSHOPTS -rd static/* $hostname:/srv/www/thezetaorbital.com/public_html/
+ssh $SSHOPTS $hostname 'chown -R nginx /srv/www/thezetaorbital.com/'
+ssh $SSHOPTS $hostname 'chgrp -R nginx /srv/www/thezetaorbital.com/'
