@@ -26,12 +26,21 @@ module.exports = {
         exclude: [path.resolve(__dirname, "node_modules")],
         use: ["style-loader", "css-loader", "less-loader"]
       }, {
-        test: /\.(jpg|png|svg|eot|woff|woff2|ttf)$/,
+        test: /\.(svg|eot|woff|woff2|ttf)$/,
         use: [{
           loader: "file-loader",
           options: {
             name: '[name].[ext]',
             outputPath: 'fonts/'
+          }
+        }]
+      }, {
+        test: /\.(jpg|png)$/,
+        use: [{
+          loader: "file-loader",
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/'
           }
         }]
       }, {
